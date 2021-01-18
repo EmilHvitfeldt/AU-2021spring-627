@@ -1,7 +1,7 @@
 ---
 title: "Schedule"
 description: |
-  Some additional details about the website
+  This page contains the tentative schedule for the course along with links
 output:
   distill::distill_article:
     toc: true
@@ -22,7 +22,7 @@ link_generator <- function(name) {
   function(x) {
     number <- str_pad(x, 2, "left", "0")
     
-    if (file_exists(path(name, glue("{number}-{name}.Rmd")))) {
+    if (file_exists(glue("{number}-{name}.Rmd"))) {
       url <- glue("{number}-{name}.html")
       return(glue("[{name}]({url})"))
     } else {
