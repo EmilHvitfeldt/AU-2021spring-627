@@ -16,3 +16,4 @@ new_render <- function(dir = "readings") {
 }
 
 new_render()
+browseURL("_site/index.html")
