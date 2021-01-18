@@ -21,10 +21,16 @@ navbar:
           href: 01-readings.html
         - text: "Week 2"
           href: 02-readings.html
+    - text: "Labs"
+      menu:
+        - text: "Information"
+          href: labs.html
+        - text: "---"
     - text: "Assignments"
-      href: assignments.html
-    - text: "Classes"
-      href: classes.html
+      menu:
+        - text: "Information"
+          href: assignments.html
+        - text: "---"
     - text: "Reference"
       href: reference.html
 output: distill::distill_article
