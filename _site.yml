@@ -1,0 +1,29 @@
+name: "stat627"
+title: "Statistical Machine Learning"
+description: |
+  Statistical Machine Learning
+output_dir: "_site"
+include: ["Readings"]
+exclude: ["papers.Rmd"]
+navbar:
+  right:
+    - text: "Syllabus"
+      href: syllabus.html
+    - text: "Schedule"
+      href: schedule.html
+    - text: "Readings"
+      menu:
+        - text: "Information"
+          href: readings.html
+        - text: "---"
+        - text: "Week 1"
+          href: 01-readings.html
+        - text: "Week 2"
+          href: 02-readings.html
+    - text: "Assignments"
+      href: assignments.html
+    - text: "Classes"
+      href: classes.html
+    - text: "Reference"
+      href: reference.html
+output: distill::distill_article
