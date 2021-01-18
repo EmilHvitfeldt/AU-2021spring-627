@@ -1,7 +1,5 @@
 ---
 title: "Schedule"
-description: |
-  This page contains the tentative schedule for the course along with links
 output:
   distill::distill_article:
     toc: true

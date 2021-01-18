@@ -1,20 +1,24 @@
 ---
 title: "Syllabus"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-(TODO change to icons)
-Instructor: Emil Hvitfeldt
-Time: M/T 
-Room: Online (Live Sessions)
-Course website: TBD
-Slack: TBD
-Office hours: TBD
-Email: emilh@american.edu
-Twiter: @Emil_Hvitfeldt
+# Instructor
+
+Instructor: Emil Hvitfeldt  
+Time: Tuesday 5:30PM - 8:00PM ET time zone (Washington DC time)  
+Course website: TBD  
+Office hours: Sunday 6:00PM - 7:00PM  
+Email: emilh@american.edu  
+Twiter: @Emil_Hvitfeldt  
 
 
 E-mail and Slack are the best ways to get in contact with me. I will try to respond to all course-related e-mails and Slack messages within 24 hours (really), but also remember that life can be busy and chaotic for everyone (including me!), so if I don't respond right away, don't worry!
@@ -27,7 +31,7 @@ STAT 520 “Applied Multivariate Analysis” or STAT 615 “Regression”.
 
 ## Main textbook
 
-This book will be reqruired reading and we will aim to cover most of the content.
+This book will be required reading and we will aim to cover most of the content.
 
 "An Introduction to Statistical Learning with Applications in R" by G. James, D. Witten, T. Hastie, and R. Tibshirani; Springer, 2013. ISBN 1461471370. The latest corrected printing is available on James's page at http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf
 
@@ -36,7 +40,7 @@ This book will be reqruired reading and we will aim to cover most of the content
 These books are by no means necessary to buy or read to complete this course but serves as great stepping stones for deeper study. Some week's readings will refer too these books for extra readings.
 
 "The Elements of Statistical Learning: Data Mining, Inference, and Prediction", by T. Hastie, R. Tibshirani, and J. Friedman, 2nd Edition; Springer, 2009. ISBN 0387848576. Available on Hastie's page at https://web.stanford.edu/~hastie/Papers/ESLII.pdf
-[more technical; contains advanced explanations and mathematical proofs]
+[more technical; contains advanced explanations and mathematical proofs].
 
 "Tidy Modeling with R" by Max Kuhn and Julia Silge. Avaliable online at https://www.tmwr.org/.
 
@@ -83,43 +87,27 @@ Please schedule a meeting with me if you would like to see or discuss your grade
 
 # Learning objectives
 
-Graduate students (STAT 627) 
+**Graduate students (STAT 627)**  
 Students will be able to:
-• Identify appropriate statistical learning methods for the
-given problem involving real data.
-• Understand the underlying assumptions, verify them, and
-propose appropriate actions if some assumptions do not
-hold.
-• Identify other possible problems with messy data, such as
-multicollinearity, understand their consequences, and
-propose solutions.
-• Evaluate performance of the chosen regression and
-classification techniques and compare them.
-• Apply cross-validation techniques to find the optimal
-degree of flexibility - the best subset of predictors or the
-optimal tuning parameters.
-• Show, analytically or empirically, the optimal balance
-between precision within training data and prediction
-power.
-• Illustrate results with appropriate plots and diagrams.
 
-Undergraduate students (STAT 427)
+- Identify appropriate statistical learning methods for the given problem involving real data.
+- Understand the underlying assumptions, verify them, and propose appropriate actions if some assumptions do not hold.
+- Identify other possible problems with messy data, such as multicollinearity, understand their consequences, and propose solutions.
+- Evaluate performance of the chosen regression and classification techniques and compare them.
+- Apply cross-validation techniques to find the optimal degree of flexibility - the best subset of predictors or the optimal tuning parameters.
+- Show, analytically or empirically, the optimal balance between precision within training data and prediction power.
+- Illustrate results with appropriate plots and diagrams.
+
+**Undergraduate students (STAT 427)**  
 Students will be able to:
-• Identify appropriate statistical learning methods for
-the given problem involving real data.
-• Understand the underlying assumptions,
-techniques available to verify them, and propose
-appropriate remedies.
-• Use training and testing data to evaluate
-performance of the chosen regression and
-classification techniques and compare them.
-• Use available empirical tools to find the optimal
-balance between precision within training data and
-prediction power.
-• Illustrate results with appropriate plots and
-diagrams.
 
-Students will demonstrate competence in using different statistical learning methods involving large, messy, and multi-dimensional numerical and categorical data. Methods include linear, logistic, and polynomial regression with proper variable selection, linear and quadratic discriminant analysis, K-nearest neighbor classifier, jackknife, bootstrap, ridge regression, lasso, principal components regression, partial least squares, splines, regression and classification trees, support vector machines, clustering, and related methods. In addition, graduate students (STAT 627) will demonstrate competency in the analytic justification of the chosen methods, tuning of the algorithms, and evaluating their prediction power. 
+- Identify appropriate statistical learning methods for the given problem involving real data.
+- Understand the underlying assumptions, techniques available to verify them, and propose appropriate remedies.
+- Use training and testing data to evaluate performance of the chosen regression and classification techniques and compare them.
+- Use available empirical tools to find the optimal balance between precision within training data and prediction power.
+- Illustrate results with appropriate plots and diagrams.
+
+Students will demonstrate competence in using different statistical learning methods involving large, messy, and multi-dimensional numerical and categorical data. Methods include linear, logistic, and polynomial regression with proper variable selection, linear and quadratic discriminant analysis, K-nearest neighbor classifier, bootstrap, ridge regression, lasso, principal components regression, partial least squares, splines, regression and classification trees, support vector machines, clustering, and related methods. In addition, graduate students (STAT 627) will demonstrate competency in the analytic justification of the chosen methods, tuning of the algorithms, and evaluating their prediction power. 
 
 # Online help
 
@@ -135,7 +123,7 @@ Additionally, we have a class chatroom at Slack where anyone in the class can as
 
 # Software 
 
-R + tidymodels + tidyverse + rstudio
+We will be using [R](https://cran.r-project.org/) and [tidymodels](https://www.tidymodels.org/) in this class. While not required, it is highly recommended that you use an IDE for R, I recommend  [https://rstudio.com/products/rstudio/](https://rstudio.com/products/rstudio/).
 
 # Learning during a pandemic
 

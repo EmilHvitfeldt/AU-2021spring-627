@@ -1,10 +1,9 @@
 ---
-title: "reference"
-description: |
-  Some additional details about the website
+title: "Reference"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+Various information links will be posted here as needed.

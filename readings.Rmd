@@ -1,9 +1,13 @@
 ---
 title: "Readings"
-description: |
-  Some additional details about the website
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+The readings for this course will be based on the textbooks listed in the [syllabus](syllabus.html#main-textbook). Readings will primarily be taken form the main textbook, but will sometimes be other material. Additional nonrequired reading will also be listed for each week for the students who wants to dig deeper in the content of the week. Information from the nonrequired reading will not be general expected knowledge in the homework and the exams and should be seen a learning opportunity only.
+
+Readings will be listed no later then 3 days before class. Reading before class is strongly encouraged as to allow you to find the areas you have additional questions about and ask them in class.
+
+Slides will also be posted here for each week.

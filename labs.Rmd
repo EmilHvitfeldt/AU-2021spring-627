@@ -1,0 +1,11 @@
+---
+title: "Labs"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Each lecture will be followed by lab time which is some time where we will be using [R](https://cran.r-project.org/) and [tidymodels](https://www.tidymodels.org/) to implement the methods we will have talked about that week.
+
+Labs are to be turned in on Blackboard. Albs will be available no later then 3 weeks before class and are due to be turned in on the following Sunday. We will be collectively be talking about the labs and come up with some of the answers. To get full credit for labs the document that is turned in should contain not just the right code to solve the problem but also text explaining what has been done.
