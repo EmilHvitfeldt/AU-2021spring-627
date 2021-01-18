@@ -20,7 +20,7 @@ The navigation bar contains information about the [syllabus](syllabus.html), [sc
 ## License {.unnumbered}
 
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />This online work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.
-Visit [here]() for more information about the license.
+Visit [here](https://github.com/EmilHvitfeldt/AU-2021spring-627) for more information about the license.
 
 ## Colophon {-}
 
