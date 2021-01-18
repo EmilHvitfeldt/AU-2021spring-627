@@ -1,5 +1,6 @@
 name: "stat627"
 title: "Statistical Machine Learning"
+theme: theme.css
 description: |
   Statistical Machine Learning
 output_dir: "_site"

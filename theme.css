@@ -10,6 +10,7 @@
 
 /* Optional: embed custom fonts here with `@import`          */
 /* This must remain at the top of this file.                 */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Ovo$family=Source+Code+Pro');
 
 
 
@@ -27,9 +28,9 @@ html {
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
   /*-- Specify custom fonts ~~~ must be imported above   --*/
-  --heading-font:    sans-serif;
-  --mono-font:       monospace;
-  --body-font:       sans-serif;
+  --heading-font:    "Lato", sans-serif;
+  --mono-font:       'Source Code Pro', monospace;
+  --body-font:       "Ovo", sarif;
 }
 
 /*-- ARTICLE METADATA --*/
