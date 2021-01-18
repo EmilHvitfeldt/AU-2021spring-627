@@ -3,7 +3,7 @@ title: "Statistical Machine Learning"
 theme: theme.css
 description: |
   Statistical Machine Learning
-output_dir: "_site"
+output_dir: "docs"
 include: ["Readings"]
 exclude: ["papers.Rmd"]
 navbar:
