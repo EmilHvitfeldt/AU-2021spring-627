@@ -24,6 +24,8 @@ navbar:
         - text: "Information"
           href: labs.html
         - text: "---"
+        - text: "Week 1"
+          href: 01-labs.html
     - text: "Assignments"
       menu:
         - text: "Information"

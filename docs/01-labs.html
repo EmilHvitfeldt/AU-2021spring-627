@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Reference</title>
+  <title>Statistical Machine Learning: Lab 01 - Hello R!</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Reference"/>
+  <meta property="og:title" content="Statistical Machine Learning: Lab 01 - Hello R!"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Reference"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Lab 01 - Hello R!"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Reference"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle"]}},"value":[{"type":"character","attributes":{},"value":["Lab 01 - Hello R!"]},{"type":"character","attributes":{},"value":["R, RStudio, Tidymodels"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Reference","authors":[]}
+{"title":"Lab 01 - Hello R!","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2413,7 +2413,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Reference</h1>
+<h1>Lab 01 - Hello R!</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2421,8 +2421,154 @@ Assignments
 
 
 <div class="d-article">
-<p>Various information links will be posted here as needed.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="learning-goals">Learning goals</h1>
+<ul>
+<li>Get acquainted with R and RStudio, which we will be using throughout the course to analyze data as well as to learn the statistical concepts discussed in the course.</li>
+<li>Appreciate the value of visualization in exploring the relationship between variables.</li>
+<li>Start using R for building plots and calculating summary statistics.</li>
+</ul>
+<h1 id="terminology">Terminology</h1>
+<p>We’ve already thrown around a few new terms, so let’s define them before we proceed.</p>
+<ul>
+<li><strong>R</strong>: Name of the programming language we will be using throughout the course.</li>
+<li><strong>RStudio</strong>: An integrated development environment for R. In other words, a convenient interface for writing and running R code.</li>
+</ul>
+<p>I like to think of R as the engine of the car, and RStudio is the dashboard.</p>
+<h1 id="starting-slow">Starting slow</h1>
+<p>As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer. Before we get to that stage, however, you need to build some basic fluency in R. Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands.</p>
+<p>And to make versioning simpler, this is a solo lab. Additionally, we want to make sure everyone gets a significant amount of time at the steering wheel.</p>
+<h1 id="getting-started">Getting started</h1>
+<h2 id="download-r">Download R</h2>
+<h3 id="if-you-dont-have-r-installed.">If you don’t have R installed.</h3>
+<p>Go to the <a href="https://cran.r-project.org/">CRAN</a> and download R, make sure you get the version that matches your operating system.</p>
+<h3 id="if-you-have-r-installed">If you have R installed</h3>
+<p>If you have R installed run the following code</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>R.version</span>
+</code></pre>
+</div>
+<pre><code>               _                           
+platform       x86_64-apple-darwin17.0     
+arch           x86_64                      
+os             darwin17.0                  
+system         x86_64, darwin17.0          
+status                                     
+major          4                           
+minor          0.2                         
+year           2020                        
+month          06                          
+day            22                          
+svn rev        78730                       
+language       R                           
+version.string R version 4.0.2 (2020-06-22)
+nickname       Taking Off Again            </code></pre>
+</div>
+<p>This should tell you what version of R you are currently using. If your R version is lower then 3.6.0 I would strongly recommend updating. In general it is a good idea to update your R version, unless you have a project right now that depend on a specific version of R.</p>
+<h2 id="download-rstudio">Download RStudio</h2>
+<p>We recommend using RStudio as your IDE if you don’t already have it installed. You can go to the <a href="https://rstudio.com/products/rstudio/download/">RStudio</a> website to download and install the software.</p>
+<h2 id="launch-rstudio">Launch RStudio</h2>
+<p>You can also open the RStudio application first and then create a project by going <code>file -&gt; new project...</code></p>
+<h2 id="create-a-new-rmarkdown-file">Create a new Rmarkdown file</h2>
+<p><code>file -&gt; new file -&gt; R markdown...</code></p>
+<h1 id="hello-rstudio">Hello RStudio!</h1>
+<p>RStudio is comprised of four panes.</p>
+<ul>
+<li><p>On the bottom left is the Console, this is where you can write code that will be evaluated. Try typing <code>2 + 2</code> here and hit enter, what do you get?</p></li>
+<li><p>On the bottom right is the Files pane, as well as other panes that will come handy as we start our analysis.</p></li>
+<li><p>If you click on a file, it will open in the editor, on the top left pane.</p></li>
+<li><p>Finally, the top right pane shows your Environment. If you define a variable it would show up there. Try typing <code>x &lt;- 2</code> in the Console and hit enter, what do you get in the Environment pane?</p></li>
+</ul>
+<h1 id="packages">Packages</h1>
+<p>R is an open-source language, and developers contribute functionality to R via packages. In this lab we will work with three packages: <code>palmerpenguins</code> which contains the dataset, and <code>tidyverse</code> which is a collection of packages for doing data analysis in a “tidy” way.</p>
+<p>Load these packages by running the following in the Console.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidymodels.tidymodels.org'>tidymodels</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://allisonhorst.github.io/palmerpenguins/'>palmerpenguins</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>If you haven’t installed these packages yet and R complains, then you can install these packages by running the following command. (Note that R package names are case-sensitive)</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"tidyverse"</span>, <span class='st'>"palmerpenguins"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Note that the packages are also loaded with the same commands in your R Markdown document.</p>
+<h1 id="warm-up">Warm up</h1>
+<p>Before we introduce the data, let’s warm up with some simple exercises.</p>
+<p>The top portion of your R Markdown file (between the three dashed lines) is called YAML. It stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.</p>
+<h2 id="yaml">YAML</h2>
+<p>Open the R Markdown (Rmd) file in your project, change the author name to your name, and knit the document.</p>
+<h1 id="data">Data</h1>
+<p>The data frame we will be working with today is called <code>penguins</code> and it’s in the <code>palmerpenguins</code> package.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidymodels.tidymodels.org'>tidymodels</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://allisonhorst.github.io/palmerpenguins/'>palmerpenguins</a></span><span class='op'>)</span>
+
+<span class='va'>penguins</span>
+</code></pre>
+</div>
+</div>
+<p>count the number of <code>species</code> and <code>island</code>s with <code>dplyr::count()</code></p>
+<p>Visualize the distribution of <code>body_mass_g</code> with ggplot</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>body_mass_g</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_histogram</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Look at the correlation between <code>body_mass_g</code> and some of the other variables</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(body_mass_g, ___)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+</div>
+<h1 id="modeling">Modeling</h1>
+<p>Fit a linear model using <code>parsnip</code> to model <code>body_mass_g</code></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lm_spec <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>lm_fit <span class="ot">&lt;-</span> lm_spec <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(___ <span class="sc">~</span> species <span class="sc">+</span> island <span class="sc">+</span> bill_length_mm <span class="sc">+</span> bill_depth_mm <span class="sc">+</span> flipper_length_mm, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> penguins)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>lm_fit</span></code></pre></div>
+</div>
+<p>Get parameter estimates:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>tidy</span><span class='op'>(</span><span class='va'>lm_fit</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h1 id="figures">Figures</h1>
+<p>You’re done with the data analysis exercises, but we’d like you to do two more things:</p>
+<p><img src="images/fig-resize-global.png" /></p>
+<ul>
+<li><strong>Resize your figures:</strong></li>
+</ul>
+<p>Click on the gear icon in on top of the R Markdown document, and select “Output Options…” in the dropdown menu. In the pop up dialogue box go to the Figures tab and change the height and width of the figures, and hit OK when done. Then, knit your document and see how you like the new sizes. Change and knit again and again until you’re happy with the figure sizes. Note that these values get saved in the YAML.</p>
+<p><img src="images/fig-resize-local.png" /></p>
+<p>You can also use different figure sizes for different figures. To do so click on the gear icon within the chunk where you want to make a change. Changing the figure sizes added new options to these chunks: <code>fig.width</code> and <code>fig.height</code>. You can change them by defining different values directly in your R Markdown document as well.</p>
+<p><img src="images/theme-highlight.png" /></p>
+<ul>
+<li><strong>Change the look of your report:</strong></li>
+</ul>
+<p>Once again click on the gear icon in on top of the R Markdown document, and select “Output Options…” in the dropdown menu. In the General tab of the pop up dialogue box try out different syntax highlighting and theme options. Hit OK and knit your document to see how it looks. Play around with these until you’re happy with the look.</p>
+<h1 id="optional">Optional</h1>
+<p>If you have time you can explore the different ways you can add styling to your rmarkdown document.</p>
+<p>Here is a <a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheatsheet</a></p>
+<p>and a <a href="https://www.markdownguide.org/cheat-sheet/">markdown cheatsheet</a></p>
+<hr />
+<p>This set of lab exersixes have been adopted from <a href="https://twitter.com/minebocek">Mine Çetinkaya-Rundel</a>’s class <a href="https://github.com/ids-s1-19">Introduction to Data Science</a>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
