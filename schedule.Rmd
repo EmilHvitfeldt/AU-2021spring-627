@@ -67,7 +67,7 @@ Topics: Linear Regression, Regression
 
 `r labs(2)`
 
-`r assignments(2)`
+`r assignments(1)`
 
 # Week 3
 
@@ -79,7 +79,7 @@ Topics: Logistic Regression, Classification, Train-Test Split
 
 `r labs(3)`
 
-`r assignments(3)`
+`r assignments(2)`
 
 # Week 4
 
@@ -91,7 +91,7 @@ Topics: LDA, QDA, K-Nearest Neighbors
 
 `r labs(4)`
 
-`r assignments(4)`
+`r assignments(3)`
 
 # Week 5
 
@@ -103,7 +103,7 @@ Topics: Bootstrap, Model Diagnostics, Evaluation Metrics
 
 `r labs(5)`
 
-`r assignments(5)`
+`r assignments(4)`
 
 # Week 6
 
@@ -115,7 +115,7 @@ Topics: Cross Validation
 
 `r labs(6)`
 
-`r assignments(6)`
+`r assignments(5)`
 
 # Week 7
 
@@ -127,7 +127,7 @@ Topics: Clustering, K-Means Clustering, Hierarchical Clustering
 
 `r labs(7)`
 
-`r assignments(7)`
+Midterm
 
 # Week 8
 
@@ -149,7 +149,7 @@ Topics: PCA, PCA Regression
 
 `r labs(9)`
 
-`r assignments(9)`
+`r assignments(6)`
 
 # Week 10
 
@@ -161,7 +161,7 @@ Topics: Shrinkage Methods, Rigde, Lasso, Hyper Parameter Tuning
 
 `r labs(10)`
 
-`r assignments(10)`
+`r assignments(7)`
 
 # Week 11
 
@@ -173,7 +173,7 @@ Topics: Splines, GAM
 
 `r labs(11)`
 
-`r assignments(11)`
+`r assignments(8)`
 
 # Week 12
 
@@ -185,7 +185,7 @@ Topics: Decision Trees, Bagging, Boosting, Random Forrests
 
 `r labs(12)`
 
-`r assignments(12)`
+`r assignments(9)`
 
 # Week 13
 
@@ -197,7 +197,7 @@ Topics: SVM
 
 `r labs(13)`
 
-`r assignments(13)`
+`r assignments(10)`
 
 # Week 14
 
