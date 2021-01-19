@@ -1,4 +1,6 @@
 Imports: 
     tidymodels,
     tidyverse,
-    xaringanExtra
+    xaringanExtra,
+    here,
+    pagedown

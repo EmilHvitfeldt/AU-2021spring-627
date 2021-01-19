@@ -24,3 +24,5 @@ install.packages("tidyverse")
 ```{r embed-xaringan, echo=FALSE, eval=TRUE}
 xaringanExtra::embed_xaringan(url = "static/slides/01-week/index.html", ratio = "16:9")
 ```
+
+[PDF download](static/slides/01-week/01-week.pdf)
