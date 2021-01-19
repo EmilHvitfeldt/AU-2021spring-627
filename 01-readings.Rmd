@@ -3,6 +3,18 @@ title: "Readings - week 1"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
 ```
 
+Read chapter 2 of "An Introduction to Statistical Learning". This is a big picture chapter that lays the foundation of the rest of the book. It is not expected to have read this before class.
+
+Chapter 1 serves as an introduction to the book, data, and notation. Can be read or skimmed through if you want.
+
+We will be using [R](https://cran.r-project.org/) which can be downloaded [here](https://cran.r-project.org/). Additionally, it is also advised to use [RStudio](https://rstudio.com/) which can be downloaded [here](https://rstudio.com/products/rstudio/download/#download), but any [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) will work.
+
+We will be using the [tidymodels](https://www.tidymodels.org/) ecosystem of packages designed for modeling. If you haven't already you should install these packages along with [tidyverse](https://www.tidyverse.org/).
+
+```{r}
+install.packages("tidymodels")
+install.packages("tidyverse")
+```
