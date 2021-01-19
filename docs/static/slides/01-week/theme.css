@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 /* General */
 body {
-  font-family: Montserrat;
+  font-family: "Ovo", sarif;
 }
 
 a, a > code {
@@ -27,7 +27,7 @@ del {
 
 /* General slides */
 .remark-code {
-  font-family: 'Hack', 'Lucida Console', Monaco, monospace;
+  font-family: 'Source Code Pro', monospace;
   font-size: 65%;
 }
 
@@ -47,27 +47,27 @@ del {
 /* Slide headers */
 .remark-slide-content h1 {
   color: #444444;
-  font-family: Montserrat;
+  font-family: "Lato", sans-serif;
 }
 
 .remark-slide-content h2 {
   color: #444444;
-  font-family: Montserrat;
+  font-family: "Lato", sans-serif;
 }
 
 .remark-slide-content h3 {
   color: #444444;
-  font-family: Montserrat;
+  font-family: "Lato", sans-serif;
 }
 
 .remark-slide-content h4 {
   color: #444444;
-  font-family: Montserrat;
+  font-family: "Lato", sans-serif;
 }
 
 .remark-slide-content h5 {
   color: #444444;
-  font-family: Montserrat;
+  font-family: "Lato", sans-serif;
 }
 
 /* Images */
@@ -99,7 +99,7 @@ li::before {
   color: #101645;
   font-size: 72px;
   text-shadow: none;
-  font-family: Montserrat;
+  font-family: "Ovo", sarif;
   text-align: center;
   vertical-align: bottom;
 }
@@ -107,7 +107,7 @@ li::before {
 .title-slide h2 {
   color: #101645;
   text-shadow: none;
-  font-family: Montserrat;
+  font-family: "Ovo", sarif;
   font-size: 48px;
   text-align: center;
   font-weight: bold;
@@ -116,7 +116,7 @@ li::before {
 .title-slide h3 {
   color: #333333;
   text-shadow: none;
-  font-family: Montserrat;
+  font-family: "Ovo", sarif;
   font-size: 36px;
   text-align: center;
   margin-bottom: 10px;
@@ -125,7 +125,7 @@ li::before {
 .title-slide h4 {
   color: #333333;
   text-shadow: none;
-  font-family: Montserrat;
+  font-family: "Ovo", sarif;
   font-size: 24px;
   text-align: center;
   margin-bottom: 10px;

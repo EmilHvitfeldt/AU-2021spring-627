@@ -18,3 +18,9 @@ We will be using the [tidymodels](https://www.tidymodels.org/) ecosystem of pack
 install.packages("tidymodels")
 install.packages("tidyverse")
 ```
+
+## Slides
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/01-week/index.html", ratio = "16:9")
+```
