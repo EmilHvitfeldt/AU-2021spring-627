@@ -6,8 +6,8 @@ title: "Assignments"
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-We will 10 weekly assignments, 1 midterm and a final project in this class. The placement of these are located in the [schedule](schedule.html).
+We will 10 weekly assignments, 1 midterm, and a final project in this class. The placement of these is located in the [schedule](schedule.html).
 
-Assignments are to be turned in on Blackboard. Assignment will be available no later then 3 weeks before class and are due to be turned in on the following Sunday. Specific times can be found no Blackboard. The assignment will contain a mix of conceptual, technical and coding exercises.
+Assignments are to be turned in on Blackboard. Assignments will be available no later than 3 days before class and are due to be turned in on the following Sunday. Specific times can be found on Blackboard. The assignment will contain a mix of conceptual, technical, and coding exercises.
 
 The midterm and final project will follow a different schedule specified on Blackboard.
