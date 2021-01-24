@@ -19,6 +19,8 @@ navbar:
         - text: "---"
         - text: "Week 1"
           href: 01-readings.html
+        - text: "Week 2"
+          href: readings-02.html
     - text: "Labs"
       menu:
         - text: "Information"
