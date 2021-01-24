@@ -4,4 +4,7 @@ Imports:
     xaringanExtra,
     here,
     pagedown,
-    palmerpenguins
+    palmerpenguins,
+    distillcourse
+Remotes:
+    EmilHvitfeldt/distillcourse
