@@ -1,0 +1,111 @@
+---
+title: "Labs - Week 2"
+subtitle: "Simple and multiple linear regression"
+params: 
+  solutions: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(include = params$solutions, eval = FALSE)
+```
+
+These sets of labs will introduce you to linear models. Both simple and multiple. This will also be your first introduction to the [parsnip](https://parsnip.tidymodels.org/) package which we will use to specify models.
+
+### Exercise 1 - Simple linear regression
+
+a) Load the data `biomass` and plot `HHV` as a function of `carbon`. 
+
+```{r, include=TRUE}
+library(tidymodels)
+data("biomass")
+```
+
+```{r}
+ggplot(biomass, aes(HHV, carbon)) +
+  geom_point()
+```
+
+b) Fit a simple linear regression model to the data. With `HHV` as the response and `carbon` as the predictor. Is it a good fit?
+
+```{r}
+linear_spec <- linear_reg() %>%
+  set_engine("lm") %>%
+  set_mode('regression')
+
+linear_fit <- linear_spec %>%
+  fit(HHV ~ carbon, data = biomass)
+
+names(linear_fit)
+
+summary(linear_fit$fit)
+
+tidy(linear_fit)
+
+glance(linear_fit)
+```
+
+c) Use the model to predict what the `HHV` of samples with `carbon = 10, 20, ..., 80`.
+
+```{r}
+new_carbon <- tibble(carbon = seq(10, 80, by = 10))
+
+predict(linear_fit, new_data = new_carbon)
+```
+
+d) Plot the fitted line of the linear model.
+
+```{r}
+biomass %>%
+  bind_cols(
+    predict(linear_fit, biomass)
+  ) %>%
+  ggplot(aes(carbon, HHV)) +
+  geom_point() +
+  geom_line(aes(y = .pred), color = "blue")
+```
+
+e) Produce diagnostics plots. You can use `plot()` on the `$fit` object to produce some diagnostics.
+
+```{r}
+biomass_pred <- predict(linear_fit, biomass)
+
+biomass %>%
+  bind_cols(
+    biomass_pred
+  ) %>%
+  mutate(.resid = HHV - .pred) %>%
+  ggplot(aes(.pred, .resid)) +
+  geom_point()
+```
+
+### Exercise 2 - Multiple linear regression
+
+a) Fit a linear regression model to the data. With `HHV` as the response and `carbon` and `hydrogen` as the predictor. How is the fit compared to the simple linear model?
+
+```{r}
+linear_fit <- linear_spec %>%
+  fit(HHV ~ carbon + hydrogen, data = biomass)
+
+names(linear_fit)
+
+summary(linear_fit$fit)
+
+tidy(linear_fit)
+
+glance(linear_fit)
+```
+
+b) Fit a linear regression model to the data. With `HHV` as the response and all the molecules as the predictor. How is the fit compared to the previous models?
+
+```{r}
+linear_fit <- linear_spec %>%
+  fit(HHV ~ carbon + hydrogen + oxygen + nitrogen + sulfur, data = biomass)
+
+names(linear_fit)
+
+summary(linear_fit$fit)
+
+tidy(linear_fit)
+
+glance(linear_fit)
+```
