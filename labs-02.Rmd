@@ -52,7 +52,7 @@ new_carbon <- tibble(carbon = seq(10, 80, by = 10))
 predict(linear_fit, new_data = new_carbon)
 ```
 
-d) Plot the fitted line of the linear model.
+d) ~~Plot the fitted line of the linear model.~~
 
 ```{r}
 biomass %>%
