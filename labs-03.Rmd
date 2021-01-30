@@ -1,0 +1,87 @@
+---
+title: "Labs - Week 3"
+subtitle: "Logistic Regression and Data Splitting"
+params: 
+  solutions: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(include = params$solutions, eval = FALSE)
+```
+
+These sets of labs will introduce you to logistic regression. This will also be your first introduction to the [rsample](https://rsample.tidymodels.org/) package which we will use to perform train-test split.
+
+# Exercise 1
+
+In this exercise we will explore the `mlc_churn` data set included in tidymodels.
+
+```{r, include=TRUE}
+library(tidymodels)
+data("mlc_churn")
+```
+
+The dataset contains a variable called `churn`
+
+a) Create a test-train `rsplit` object of `mlc_churn` using `initial_split()`. Use the arguments to set the proportions of the training data to be 80%. Stratify the sampling according to the `churn` variable. How many observations are in the testing and training sets?
+
+```{r}
+mlc_churm_split <- initial_split(mlc_churn, prop = 0.8, strata = churn)
+```
+
+b) Create the training and testing data set with `training()` and `testing()` respectively. Does the observation counts match what you found in the last question?
+
+```{r}
+mlc_churm_train <- training(mlc_churm_split)
+```
+
+c) Fit a logistic regression model using `logistic_reg()`. Use `number_vmail_messages`, `total_intl_minutes`, `total_intl_calls`, `total_intl_charge`, `number_customer_service_calls` as predictors. Remember to fit the model only using the training data set.
+
+```{r}
+data("mlc_churn")
+
+lr_spec <- logistic_reg() %>%
+  set_mode("classification") %>%
+  set_engine("glm")
+
+lr_fit <- lr_spec %>%
+  fit(churn ~ number_vmail_messages + total_intl_minutes + 
+        total_intl_calls + total_intl_charge + number_customer_service_calls, 
+      data = mlc_churn)
+```
+
+d) Inspect the model with `summary()` and `tidy()`. How good are the variables we have choosen?
+
+```{r}
+tidy(lr_fit)
+
+summary(lr_fit$fit)
+```
+
+e) Predict values for the testing data set. Use the `type` argument to also get probability predictions.
+
+```{r}
+mlc_churm_testing <- testing(mlc_churm_split)
+
+predictions <- predict(lr_fit, new_data = mlc_churm_testing)
+predictions_prop <- predict(lr_fit, new_data = mlc_churm_testing, type = "prob")
+predictions_prop <- predict(lr_fit, new_data = mlc_churm_testing, type = "conf_int")
+
+predictions_prop
+```
+
+f) Use `conf_mat()` to construct a confusion matrix. Does the confusion matrix look good?
+
+`conf_mat()` is used as follows, where `truth` is the name of the true response variable and `estimate` is the name of the predicted response.
+
+```{r, include=TRUE, eval=FALSE}
+data %>%
+  conf_mat(truth, estimate)
+```
+
+```{r}
+bind_cols(
+  predictions,
+  mlc_churm_testing
+) %>%
+  conf_mat(churn, .pred_class)
+```
