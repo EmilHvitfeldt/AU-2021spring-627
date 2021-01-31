@@ -41,6 +41,8 @@ navbar:
         - text: "---"
         - text: "Assignment 1"
           href: assignments-01.html
+        - text: "Assignment 2"
+          href: assignments-02.html
     - text: "Reference"
       href: reference.html
 output: distill::distill_article

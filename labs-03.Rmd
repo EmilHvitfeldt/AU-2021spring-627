@@ -20,7 +20,7 @@ library(tidymodels)
 data("mlc_churn")
 ```
 
-The dataset contains a variable called `churn`
+The data set contains a variable called `churn`
 
 a) Create a test-train `rsplit` object of `mlc_churn` using `initial_split()`. Use the arguments to set the proportions of the training data to be 80%. Stratify the sampling according to the `churn` variable. How many observations are in the testing and training sets?
 

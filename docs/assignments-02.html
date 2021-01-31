@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Assignments</title>
+  <title>Statistical Machine Learning: Assignment 2</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Assignments"/>
+  <meta property="og:title" content="Statistical Machine Learning: Assignment 2"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Assignments"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Assignment 2"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignments"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignment 2"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Assignments","authors":[]}
+{"title":"Assignment 2","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2419,7 +2419,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Assignments</h1>
+<h1>Assignment 2</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2427,9 +2427,39 @@ Assignments
 
 
 <div class="d-article">
-<p>We will 10 weekly assignments, 1 midterm, and a final project in this class. The placement of these is located in the <a href="schedule.html">schedule</a>.</p>
-<p>Assignments are to be turned in on Blackboard. Assignments will be available no later than 3 days before class and are due to be turned in on the following Sunday. Specific times can be found on Blackboard. The assignment will contain a mix of conceptual, technical, and coding exercises.</p>
-<p>The midterm and final project will follow a different schedule specified on Blackboard.</p>
+<h1 id="exercise-1-10-points">Exercise 1 (10 points)</h1>
+<p>Suppose we collect data for a group of students in a statistics class with variables <span class="math inline">\(X_1\)</span> = hours studied, <span class="math inline">\(X_2\)</span> = undergrad GPA, and <span class="math inline">\(Y\)</span> = receive an A. We fit a logistic regression and produce estimated coefficient, <span class="math inline">\(\hat{\beta}_0=-6\)</span>, <span class="math inline">\(\hat{\beta}_1=0.05\)</span>, <span class="math inline">\(\hat{\beta}_2=1\)</span>.</p>
+<ol type="a">
+<li>Estimate the probability that a student who studies for 40 hours and has an undergrad GPA of <span class="math inline">\(3.5\)</span> gets an A in the class.</li>
+<li>How many hours would that student in part (a) need to study to have a 50% chance of getting an A in the class?</li>
+</ol>
+<h1 id="exercise-2-10-points">Exercise 2 (10 points)</h1>
+<p>Suppose that we take a data set, divide it into equally-sized training and test sets, and then try out two different classification procedures. First, we use logistic regression and get an error rate of 20% on the training data and 30% on the test data. Next, we use 1-nearest neighbors (i.e. <span class="math inline">\(K = 1\)</span>) and get an average error rate (averaged over both test and training data sets) of 18%. Based on these results, which method should we prefer to use for classification of new observations? Why?</p>
+<h1 id="exercise-3-15-points">Exercise 3 (15 points)</h1>
+<p>In this exercise, we will explore a data set about cars called <code>auto</code> which you can find <a href="data/auto.csv">here</a>.</p>
+<p>The data set contains 1 factor variable and 6 numeric variables. The factor variable <code>mpg</code> has two levels <code>high</code> and <code>low</code> indicating whether the car has a high or low miles per gallon. We will in this exercise investigate if we are able to use a logistic regression classifier to predict if a car has high or low mpg from the other variables.</p>
+<ol type="a">
+<li><p>Read in the data and create a test-train <code>rsplit</code> object of <code>auto</code> using <code>initial_split()</code>. Use default arguments for <code>initial_split()</code>.</p></li>
+<li><p>Create the training and testing data set with <code>training()</code> and <code>testing()</code> respectively.</p></li>
+<li><p>Fit a logistic regression model using <code>logistic_reg()</code>. Use all the 6 numeric variables as predictors (a formula shorthand is to write <code>mpg ~ .</code> where <code>.</code> means everything. Remember to fit the model only using the training data set.</p></li>
+<li><p>Inspect the model with <code>summary()</code> and <code>tidy()</code>. Which of the variables are significant?</p></li>
+<li><p>Predict values for the training data set and save them as <code>training_pred</code>.</p></li>
+<li><p>Use the following code to calculate the training accuracy</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>bind_cols</span><span class='op'>(</span>
+  <span class='va'>training_pred</span>,
+  <span class='va'>auto_training</span>
+<span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>accuracy</span><span class='op'>(</span>truth <span class='op'>=</span> <span class='va'>mpg</span>, estimate <span class='op'>=</span> <span class='va'>.pred_class</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>(<code>auto_training</code> should be renamed to match your training data set if needed.)</p>
+<ol start="7" type="a">
+<li>Predict values for the testing data set and use the above code to calculate the testing accuracy. Compare.</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2438,6 +2468,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
