@@ -11,3 +11,11 @@ We will start by talking about logistic regression this week and talk about line
 Furthermore this is the first we will be talking about classification methods, take note of the differences between this and regression.
 
 We will also talk about the notion of data splitting or "train-test splitting". Please read the 5th chapter of "Tidy Modeling with R" which can be found [here](https://www.tmwr.org/splitting.html).
+
+## Slides
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/03-week/index.html", ratio = "16:9")
+```
+
+[PDF download](static/slides/03-week/03-week.pdf)
