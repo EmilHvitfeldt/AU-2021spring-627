@@ -1,0 +1,9 @@
+---
+title: "Readings - week 5"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Please read chapter 5 in "An Introduction to Statistical Learning", pay special attention to cross-validation which will be the focus on this week. We will also be talking about evaluating model performance so please also read chapter [9 - Judging model effectiveness](https://www.tmwr.org/performance.html) in "Tidy Modeling with R, which we will use as the introduction for the R package [yardstick](https://yardstick.tidymodels.org/).

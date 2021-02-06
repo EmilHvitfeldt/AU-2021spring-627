@@ -23,6 +23,26 @@ navbar:
           href: readings-02.html
         - text: "Week 3"
           href: readings-03.html
+        - text: "Week 4"
+          href: readings-04.html
+        - text: "Week 5"
+          href: readings-05.html
+        - text: "Week 6"
+          href: readings-06.html
+        - text: "Week 7"
+          href: readings-07.html
+        - text: "Week 8"
+          href: readings-08.html
+        - text: "Week 9"
+          href: readings-09.html
+        - text: "Week 10"
+          href: readings-10.html
+        - text: "Week 11"
+          href: readings-11.html
+        - text: "Week 12"
+          href: readings-12.html
+        - text: "Week 13"
+          href: readings-13.html
     - text: "Labs"
       menu:
         - text: "Information"

@@ -1,0 +1,9 @@
+---
+title: "Readings - week 6"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will continue working on chapter 5 from "An Introduction to Statistical Learning" this week with a focus on bootstrapping and other kinds of Cross Validation. We will also talk about data leakage some more.

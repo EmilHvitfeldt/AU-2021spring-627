@@ -1,0 +1,10 @@
+---
+title: "Readings - week 7"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Please read chapter 10 in "An Introduction to Statistical Learning". This will be the only major jump on the textbook, but it shouldn't affect reading too much. The chapter covers clustering methods and we will look at "K-Means Clustering and Hierarchical clustering. This will (sadly) be our only peak at unsupervised learning this course.
+Also read the article [K-means clustering with tidy data principles](https://www.tidymodels.org/learn/statistics/k-means/) from [tidymodels.org](https://www.tidymodels.org/) which covers how to work with clustering in the tidymodels framework.

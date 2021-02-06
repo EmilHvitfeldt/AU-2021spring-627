@@ -1,0 +1,11 @@
+---
+title: "Readings - week 8"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We are having [Wellness Week](https://www.american.edu/provost/communications/november-17-2020.cfm). I'll be talking about feature engineering and the value of pre-processing. There will be no reading this week.
+
+If you find the subject of this lecture, you should check out the book [Feature Engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/) by Max Kuhn and Kjell Johnson.

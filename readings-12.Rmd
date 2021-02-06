@@ -1,0 +1,9 @@
+---
+title: "Readings - week 12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will be talking about Decision trees, bagging, boosting and random forests . Please read chapter 8 in "An Introduction to Statistical Learning".
