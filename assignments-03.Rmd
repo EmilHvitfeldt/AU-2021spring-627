@@ -48,6 +48,7 @@ a. Split the data into a training and testing data set using the following code
 
 a. Now fit the logistic regression model using the training data, with `Lag2` as the only predictor. Compute the confusion matrix and accuracy metric using the testing data set.
 a. Repeat (e) using LDA.
+a. Repeat (e) using QDA.
 a. Repeat (e) using KNN with `K = 1`.
 a. Which of these methods appear to provide the best results on the data?
 a. (Optional) Experiment with different combinations of predictors for each of the methods. Report the variables, methods, and associated confusion matrix that appears to provide the best results on the held-out data. Note that you can also experiment with different values of K in KNN. (This kind of running many many models and testing on the testing data set many times is not good practice. We will look at ways in later weeks on how we can properly explore multiple models.)

@@ -49,7 +49,7 @@ lr_fit <- lr_spec %>%
       data = mlc_churn)
 ```
 
-d) Inspect the model with `summary()` and `tidy()`. How good are the variables we have choosen?
+d) Inspect the model with `summary()` and `tidy()`. How good are the variables we have chosen?
 
 ```{r}
 tidy(lr_fit)

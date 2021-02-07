@@ -1,0 +1,50 @@
+---
+title: "Labs - Week 4"
+subtitle: "LDA, QDA and KNNs"
+params: 
+  solutions: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(include = params$solutions, eval = FALSE)
+```
+
+```{r}
+library(tidymodels)
+data("mlc_churn")
+```
+
+We will be using the add-on package [discrim](https://discrim.tidymodels.org/) to access functions to perform discriminant analysis models with parsnip and the `klaR` package to perform the QDA calculations. if you haven't already got it installed run
+
+```{r, eval=FALSE, include=TRUE}
+install.packages(c("discrim", "klaR"))
+```
+
+Create a test-train `rsplit` object of `mlc_churn` using `initial_split()`. Use the arguments to set the proportions of the training data to be 80%. Stratify the sampling according to the `churn` variable.
+
+Do the following tasks for LDA, QDA and KNN model.
+
+a. Fit a classification model. Use `number_vmail_messages`, `total_intl_minutes`, `total_intl_calls`, `total_intl_charge`, `number_customer_service_calls` as predictors. Remember to fit the model only using the training data set.
+a. Inspect the model with `summary()` and `tidy()`. How good are the variables we have chosen?
+a. Predict values for the testing data set.
+a. Use `conf_mat()` to construct a confusion matrix. Does the confusion matrix look good?
+
+```{r}
+formula_spec <- churn ~ number_vmail_messages + total_intl_minutes + 
+        total_intl_calls + total_intl_charge + number_customer_service_calls
+
+library(discrim)
+lda_spec <- discrim_linear() %>%
+  set_engine("MASS") %>%
+  set_mode("classification") %>%
+  fit(formula_spec, data = mlc_churn)
+
+qda_spec <- discrim_regularized(frac_common_cov = 0, frac_identity = 0) %>% 
+  set_engine("klaR") %>%
+  set_mode("classification") %>%
+  fit(formula_spec, data = mlc_churn)
+
+knn_spec <- nearest_neighbor(neighbors = 1) %>%
+  set_engine("kknn") %>%
+  set_mode("classification")
+```
