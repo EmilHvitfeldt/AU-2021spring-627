@@ -7,3 +7,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 This week will be covering Linear Discriminant Analysis (LDA), Quadratic Discriminant Analysis (QDA) and K-Nearest Neighbors (KNN). Please finish reading chapter 4 (4.4 and 4.5) in "An Introduction to Statistical Learning". If you haven't already please make brush up on section 3.5 where KNN is covered for regression.
+
+## Slides
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/04-week/index.html", ratio = "16:9")
+```
+
+[PDF download](static/slides/04-week/04-week.pdf)
