@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Labs</title>
+  <title>Statistical Machine Learning: Assignment 4</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Labs"/>
+  <meta property="og:title" content="Statistical Machine Learning: Assignment 4"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Labs"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Assignment 4"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Labs"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignment 4"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Labs","authors":[]}
+{"title":"Assignment 4","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2433,7 +2433,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Labs</h1>
+<h1>Assignment 4</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2441,8 +2441,46 @@ Assignments
 
 
 <div class="d-article">
-<p>Each lecture will be followed by lab time which is sometimes where we will be using <a href="https://cran.r-project.org/">R</a> and <a href="https://www.tidymodels.org/">tidymodels</a> to implement the methods we will have talked about that week.</p>
-<p>Labs are to be turned in on Blackboard. Albs will be available no later than 3 days before class and are due to be turned in on the following Sunday. We will be collectively be talking about the labs and come up with some of the answers. To get full credit for labs the document that is turned in should contain not just the right code to solve the problem but also text explaining what has been done.</p>
+<h1 id="exercise-1-10-points">Exercise 1 (10 points)</h1>
+<p>Review of <em>k</em>-fold cross-validation.</p>
+<ol type="a">
+<li>Explain how <em>k</em>-fold cross-validation is implemented.</li>
+<li>What are the advantages and disadvantages of <em>k</em>-fold cross-validation relative to
+<ul>
+<li>The validation set approach</li>
+<li>LOOCV</li>
+</ul></li>
+</ol>
+<h1 id="exercise-2-10-points">Exercise 2 (10 points)</h1>
+<p>Denote whether the following statements are true or false. Explain your reasoning.</p>
+<ol type="a">
+<li>When <span class="math inline">\(k = n\)</span> the cross-validation estimator is approximately unbiased for the true prediction error.</li>
+<li>When <span class="math inline">\(k = n\)</span> the cross-validation estimator will always have a low variance.</li>
+<li>Statistical transformations on the predictors, such as scaling and centering, must be done inside each fold.</li>
+</ol>
+<h1 id="exercise-3-15-points">Exercise 3 (15 points )</h1>
+<p>This exercise should be answered using the <code>Weekly</code> data set, which is part of the <code>LSLR</code> package. If you don’t have it installed already you can install it with</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"ISLR"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>To load the data set run the following code</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://www.StatLearning.com'>ISLR</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"Weekly"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<ol type="a">
+<li>Create a test and training set using <code>initial_split()</code>. Split proportion is up to you. Remember to set a seed!</li>
+<li>Create a logistic regression specification using <code>logistic_reg()</code>. Set the engine to <code>glm</code>.</li>
+<li>Create a 5-fold cross-validation object using the training data, and fit the resampled folds with <code>fit_resamples()</code> and <code>Direction</code> as the response and the five lag variables plus <code>Volume</code> as predictors. Remember to set a seed before creating k-fold object.</li>
+<li>Collect the performance metrics using <code>collect_metrics()</code>. Interpret.</li>
+<li>Fit the model on the whole training data set. Calculate the accuracy on the test set. How does this result compare to results in d. Interpret.</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2451,6 +2489,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

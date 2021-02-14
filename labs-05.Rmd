@@ -1,0 +1,14 @@
+---
+title: "Lab 5 - k-fold cross-validation"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Create a test-train `rsplit` object of `mlc_churn` using `initial_split()`. Use the arguments to set the proportions of the training data to be 80%. Stratify the sampling according to the `churn` variable.
+
+a. Create a LDA model specification.
+b. Create a 10-fold cross-validation split object.
+c. Fit the model within each of the folds.
+d. Extract the performance metrics for each fold.
