@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Readings - week 11</title>
+  <title>Statistical Machine Learning: Lab 6 - Bootstrapping</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Readings - week 11"/>
+  <meta property="og:title" content="Statistical Machine Learning: Lab 6 - Bootstrapping"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Readings - week 11"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Lab 6 - Bootstrapping"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 11"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab 6 - Bootstrapping"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 11","authors":[]}
+{"title":"Lab 6 - Bootstrapping","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2435,7 +2435,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 11</h1>
+<h1>Lab 6 - Bootstrapping</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2443,7 +2443,13 @@ Assignments
 
 
 <div class="d-article">
-<p>We will be talking about splines and Generalized additive models (GAM). Please read chapter 7 in “An Introduction to Statistical Learning”.</p>
+<p>Create a test-train <code>rsplit</code> object of <code>mlc_churn</code> using <code>initial_split()</code>. Use the arguments to set the proportions of the training data to be 80%. Stratify the sampling according to the <code>churn</code> variable.</p>
+<ol type="a">
+<li>Create a LDA model specification.</li>
+<li>Create 10 bootstrap samples split object.</li>
+<li>Fit the model within each of the folds.</li>
+<li>Extract the performance metrics for each fold.</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

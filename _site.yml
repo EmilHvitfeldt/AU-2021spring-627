@@ -58,6 +58,8 @@ navbar:
           href: labs-04.html
         - text: "Week 5"
           href: labs-05.html
+        - text: "Week 6"
+          href: labs-06.html
     - text: "Assignments"
       menu:
         - text: "Information"
@@ -71,6 +73,8 @@ navbar:
           href: assignments-03.html
         - text: "Assignment 4"
           href: assignments-04.html
+        - text: "Assignment 5"
+          href: assignments-05.html
     - text: "Reference"
       href: reference.html
 output: distill::distill_article
