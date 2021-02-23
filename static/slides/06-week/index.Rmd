@@ -1,0 +1,483 @@
+---
+title: "Bootstrapping"
+subtitle: "AU STAT-427/627"
+author: "Emil Hvitfeldt"
+date: "2021-2-23"
+output:
+  xaringan::moon_reader:
+    css: ["theme.css", "default"]
+    lib_dir: libs
+    nature:
+      beforeInit: "macros.js"
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [center, middle]
+---
+
+```{r include=FALSE}
+library(knitr)
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines) == 1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+knit_hooks$set(output = function(x, options) {
+  # this hook is used only when the linewidth option is not NULL
+  if (!is.null(n <- options$linewidth)) {
+    x = knitr:::split_lines(x)
+    # any lines wider than n should be wrapped
+    if (any(nchar(x) > n)) x = strwrap(x, width = n)
+    x = paste(x, collapse = '\n')
+  }
+  hook_output(x, options)
+})
+
+opts_chunk$set(
+  echo = TRUE,
+  fig.width = 7, 
+  dpi = 300,
+  fig.align = 'center',
+  fig.asp = 0.618, # 1 / phi
+  out.width = "700px")
+
+library(tidymodels)
+```
+
+```{r, echo = FALSE}
+library(sass)
+sass(sass_file("theme.sass"), output = "theme.css")
+```
+
+<div style = "position:fixed; visibility: hidden">
+$$\require{color}\definecolor{orange}{rgb}{1, 0.603921568627451, 0.301960784313725}$$
+$$\require{color}\definecolor{blue}{rgb}{0.301960784313725, 0.580392156862745, 1}$$
+$$\require{color}\definecolor{pink}{rgb}{0.976470588235294, 0.301960784313725, 1}$$
+</div>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      orange: ["{\\color{orange}{#1}}", 1],
+      blue: ["{\\color{blue}{#1}}", 1],
+      pink: ["{\\color{pink}{#1}}", 1]
+    },
+    loader: {load: ['[tex]/color']},
+    tex: {packages: {'[+]': ['color']}}
+  }
+});
+</script>
+
+<style>
+.orange {color: #FF9A4D;}
+.blue {color: #4D94FF;}
+.pink {color: #F94DFF;}
+</style>
+
+
+```{r flair_color, echo=FALSE}
+library(flair)
+orange <- "#FF9A4D"
+blue <- "#4D94FF"
+pink <- "#F94DFF"
+```
+
+# Bootstrapping
+
+Last week we looked at a couple of different Cross-Validation methods
+
+- Leave-One-Out Cross-Validation (LOOCV)
+- K-fold Cross-Validation
+
+---
+
+# Bootstrapping
+
+This week we will look at .orange[Bootstrapping]
+
+This is a technique that uses resampling with replacement to estimate the uncertainty with a given estimator or statistical learning method
+
+It is a powerful and general statistical tool, and can be used with most estimators/methods
+
+---
+
+# Bootstrapping VS Cross-Validation
+
+- .blue[Cross-Validation]: provide estimates of the test error.
+- .orange[Bootstrap]: provides the standard error of the estimates.
+
+---
+
+# Motivation
+
+.pull-left[
+Suppose We have an estimate we want to find out how variable it is.
+
+We could collect data $n$ times and calculate the estimates.
+
+We then have a distribution of and can see the how well it is doing
+]
+
+.pull-right[
+1000 realizations  
+.pink[pink] line is the mean  
+.orange[orange] lines 95% percent quantiles
+
+```{r, echo=FALSE}
+tibble(estimate = rnorm(1000, 15, 2.5)) %>%
+  ggplot(aes(estimate)) +
+  geom_histogram(bins = 100) +
+  theme_minimal() +
+  geom_vline(aes(xintercept = mean(estimate)),
+             color = pink) +
+  geom_vline(aes(xintercept = quantile(estimate, 0.025)),
+             color = orange) +
+  geom_vline(aes(xintercept = quantile(estimate, 0.975)),
+             color = orange)
+```
+]
+
+---
+
+# Motivation
+
+## The Problem
+
+We are not always able to conduct multiple data collections at will
+
+Sometimes for resource issues or time-sensitive data
+
+We need the different samples to come from the same underlying distribution
+
+---
+
+# Motivation
+
+## The Solution
+
+We take our one data set and resample the rows with replacement. This allows us to get new data sets that approximate the original data set
+
+If the original data set is close to the underlying true distribution then the resampled data sets are also approximations of the true underlying distribution
+
+---
+
+# Example
+
+From "An Introduction to Statistical Learning"
+
+```{r, echo=FALSE}
+set.seed(1234)
+Sigma <- matrix(c(1,0.5,0.5,1.25), nrow = 2)
+data <- MASS::mvrnorm(n = 100, rep(0, 2), Sigma)
+```
+
+```{r, echo=FALSE}
+as_tibble(data) %>%
+  set_names(c("X", "Y")) %>%
+  ggplot(aes(X, Y)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Original Data")
+```
+
+---
+
+# Example
+
+Visualizing multiple bootstrappings
+
+```{r, echo=FALSE}
+as_tibble(data) %>%
+  set_names(c("X", "Y")) %>%
+  bootstraps(times = 9) %>%
+  mutate(splits = map(splits, analysis)) %>%
+  unnest(cols = c(splits)) %>%
+  count(X, Y, id) %>%
+  ggplot(aes(X, Y, color = n)) +
+  geom_point() +
+  theme_minimal() +
+  facet_wrap(~id) +
+  scale_color_viridis_c() +
+  labs(title = "9 reaelizations of Bootstrapping",
+       subtitle = "Color indicates the number of times the observation is sampled")
+```
+
+---
+
+# Example
+
+We want to minimize
+
+$$\alpha = \dfrac{\sigma^2_Y - \sigma_{XY}}{\sigma^2_X + \sigma^2_Y - 2\sigma_{XY}}$$
+
+Where $\sigma^2_X = \text{Var}(X)$, $\sigma^2_Y = \text{Var}(Y)$, and $\sigma_{XY} = \text{Cov}(X, Y)$
+
+---
+
+# Bootstrapping results
+
+```{r, echo=FALSE}
+set.seed(1234)
+all_boots <- as_tibble(data) %>%
+  set_names(c("X", "Y")) %>%
+  bootstraps(times = 1000) %>%
+  mutate(splits = map(splits, analysis)) %>%
+  unnest(col = c("splits")) %>%
+  group_by(id) %>%
+  summarise(var_x = var(X), var_y = var(Y), cov_xy = cov(X, Y)) %>%
+  mutate(estimate = (var_y - cov_xy) / (var_x + var_y - 2 * cov_xy))
+
+all_boots
+```
+
+---
+
+# Bootstrapping results
+
+With $n = 100$ in original data set
+
+```{r, echo=FALSE}
+quantiles <- all_boots %>%
+  pivot_longer(-id) %>%
+  group_by(name) %>%
+  summarise(mean = mean(value),
+            lower = quantile(value, 0.025),
+            higher = quantile(value, 0.975))
+
+all_boots %>%
+  pivot_longer(-id) %>%
+  ggplot(aes(value)) +
+  geom_histogram(bins = 100) +
+  facet_wrap(~name) +
+  geom_vline(aes(xintercept = mean), data = quantiles, 
+             color = pink) +
+  geom_vline(aes(xintercept = lower), data = quantiles, 
+             color = orange) +
+  geom_vline(aes(xintercept = higher), data = quantiles, 
+             color = orange) +
+  theme_minimal()
+```
+
+---
+
+# Bootstrapping results
+
+With $n = 1000$ in original data set
+
+```{r, echo=FALSE}
+set.seed(1234)
+Sigma <- matrix(c(1,0.5,0.5,1.25), nrow = 2)
+data <- MASS::mvrnorm(n = 1000, rep(0, 2), Sigma)
+
+all_boots <- as_tibble(data) %>%
+  set_names(c("X", "Y")) %>%
+  bootstraps(times = 1000) %>%
+  mutate(splits = map(splits, analysis)) %>%
+  unnest(col = c("splits")) %>%
+  group_by(id) %>%
+  summarise(var_x = var(X), var_y = var(Y), cov_xy = cov(X, Y)) %>%
+  mutate(estimate = (var_y - cov_xy) / (var_x + var_y - 2 * cov_xy))
+
+quantiles <- all_boots %>%
+  pivot_longer(-id) %>%
+  group_by(name) %>%
+  summarise(mean = mean(value),
+            lower = quantile(value, 0.025),
+            higher = quantile(value, 0.975))
+
+all_boots %>%
+  pivot_longer(-id) %>%
+  ggplot(aes(value)) +
+  geom_histogram(bins = 100) +
+  facet_wrap(~name) +
+  geom_vline(aes(xintercept = mean), data = quantiles, 
+             color = pink) +
+  geom_vline(aes(xintercept = lower), data = quantiles, 
+             color = orange) +
+  geom_vline(aes(xintercept = higher), data = quantiles, 
+             color = orange) +
+  theme_minimal()
+```
+
+---
+
+# Bootstrapping results
+
+With $n = 10000$ in original data set
+
+```{r, echo=FALSE}
+set.seed(1234)
+Sigma <- matrix(c(1,0.5,0.5,1.25), nrow = 2)
+data <- MASS::mvrnorm(n = 10000, rep(0, 2), Sigma)
+
+all_boots <- as_tibble(data) %>%
+  set_names(c("X", "Y")) %>%
+  bootstraps(times = 1000) %>%
+  mutate(splits = map(splits, analysis)) %>%
+  unnest(col = c("splits")) %>%
+  group_by(id) %>%
+  summarise(var_x = var(X), var_y = var(Y), cov_xy = cov(X, Y)) %>%
+  mutate(estimate = (var_y - cov_xy) / (var_x + var_y - 2 * cov_xy))
+
+quantiles <- all_boots %>%
+  pivot_longer(-id) %>%
+  group_by(name) %>%
+  summarise(mean = mean(value),
+            lower = quantile(value, 0.025),
+            higher = quantile(value, 0.975))
+
+all_boots %>%
+  pivot_longer(-id) %>%
+  ggplot(aes(value)) +
+  geom_histogram(bins = 100) +
+  facet_wrap(~name) +
+  geom_vline(aes(xintercept = mean), data = quantiles, 
+             color = pink) +
+  geom_vline(aes(xintercept = lower), data = quantiles, 
+             color = orange) +
+  geom_vline(aes(xintercept = higher), data = quantiles, 
+             color = orange) +
+  theme_minimal()
+```
+
+---
+
+# What size of bootstrappings are we looking for?
+
+We are using bootstrapping sizes to be the same size of to get a comparatively estimate of the variation
+
+---
+
+
+# Rsample
+
+We are back with `rsample` and the `mtcars` data set
+
+```{r}
+library(rsample)
+
+mtcars
+```
+
+---
+
+# Rsample
+
+.pull-left[
+We can use the `bootstraps()` function on a data.frame to create a `bootstraps` object
+
+```{r, eval=FALSE}
+mtcars_boots <- bootstraps(mtcars, times = 100)
+mtcars_boots
+```
+]
+
+.pull-right[
+```{r, echo=FALSE}
+mtcars_boots <- bootstraps(mtcars, times = 100)
+mtcars_boots
+```
+]
+
+---
+
+# Rsample
+
+An under the hood, we have 100 analysis/assesment splits similar to `initial_split()` and `vfold_cv()`
+
+.pull-left[
+```{r, eval=FALSE}
+mtcars_boots <- bootstraps(mtcars, times = 100)
+mtcars_boots$splits
+```
+]
+
+.pull-right[
+```{r, echo=FALSE}
+mtcars_boots <- bootstraps(mtcars, times = 100)
+mtcars_boots$splits
+```
+]
+
+---
+
+# Using resamples in action
+
+We start by creating a linear regression specification and create a `workflow` object with `workflows()`
+
+```{r}
+library(parsnip)
+linear_spec <- linear_reg() %>%
+  set_mode("regression") %>%
+  set_engine("lm")
+
+library(workflows)
+
+linear_wf <- workflow() %>%
+  add_model(linear_spec) %>%
+  add_formula(mpg ~ disp + hp + wt)
+```
+
+---
+
+# Tune
+
+We can use `fit_resamples()` to fit the workflow we created within each bootstrap
+
+```{r}
+library(tune)
+
+linear_fold_fits <- fit_resamples(
+    linear_wf,
+    resamples = mtcars_boots
+)
+```
+
+---
+
+# Tune
+
+The results of this resampling comes as a data.frame
+
+```{r}
+linear_fold_fits
+```
+
+---
+
+# Tune
+
+`collect_metrics()` can be used to extract the CV estimate
+
+```{r}
+library(tune)
+
+collect_metrics(linear_fold_fits)
+```
+
+---
+
+# Tune
+
+Setting `summarize = FALSE` in `collect_metrics()` Allows us the see the individual performance metrics for each fold
+
+```{r}
+collect_metrics(linear_fold_fits, summarize = FALSE)
+```
