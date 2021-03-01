@@ -75,6 +75,8 @@ navbar:
           href: assignments-04.html
         - text: "Assignment 5"
           href: assignments-05.html
+        - text: "Midterm"
+          href: assignments-Midterm.html
     - text: "Reference"
       href: reference.html
 output: distill::distill_article
