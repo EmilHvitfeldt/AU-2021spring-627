@@ -1,0 +1,24 @@
+---
+title: "Lab 7 - clustering"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will be using the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) data set for this lab.
+
+You will also be needing to load the [broom](https://broom.tidymodels.org/) package
+
+```{r, eval=FALSE}
+library(palmerpenguins)
+library(broom)
+```
+
+a. Transform the data set into a matrix using two of the numeric variables
+b. Perform k-means using 3 clusters
+c. Look at the result object with `summary()`, `names()`, and `str()`.
+d. Use `augment()`, `glance()` and `tidy()` to extract information from the model
+e. Plot the clusters with your package of choice
+f. Rerun The previous steps with more variables and different values of $K$
+g. Construct an Elbow Chart to find an appropriate number of clusters for the data set
