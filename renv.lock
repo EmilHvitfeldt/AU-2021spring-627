@@ -274,6 +274,13 @@
       "Repository": "CRAN",
       "Hash": "a0cbe758a531d054b537d16dff4d58a1"
     },
+    "discrim": {
+      "Package": "discrim",
+      "Version": "0.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "341199b929dcd50cb818b9e00642e8cb"
+    },
     "distill": {
       "Package": "distill",
       "Version": "1.1.2",
@@ -940,10 +947,10 @@
     },
     "sass": {
       "Package": "sass",
-      "Version": "0.2.0",
+      "Version": "0.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "441417bbd40d5bbd07561cc40fb182ed"
+      "Hash": "3ef1adfe46b7b144b970d74ce33ab0d6"
     },
     "scales": {
       "Package": "scales",
