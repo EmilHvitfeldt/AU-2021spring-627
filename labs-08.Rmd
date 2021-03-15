@@ -1,0 +1,23 @@
+---
+title: "Lab week 8"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will in this lab explore how principal components are calculated and analyzed.
+
+We will be using the `concrete` data set from the {modeldata} package which is loaded with {tidymodels}.
+
+```{r, eval=FALSE}
+library(tidymodels)
+data(concrete)
+```
+
+a. Calculate the PCA of the data
+b. Explore the loading, eigenvalues, and final projection using the broom package
+c. Visualize the projections. Look at how the scaling of the variables changes the projection
+d. Use the {recipes} package to calculate the principal components.
+
+
