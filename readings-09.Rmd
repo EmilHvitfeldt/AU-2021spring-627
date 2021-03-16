@@ -9,3 +9,11 @@ knitr::opts_chunk$set(echo = TRUE)
 We will continue the topic of pre-processing from last week and see how it related to PCA (chapter 10 in "An Introduction to Statistical Learning") and PCA regression (chapter 6.2).
 
 [recipes](https://recipes.tidymodels.org/) will be introduces as the R package we will use to perform pre-processing. Please read [this vvignette](https://recipes.tidymodels.org/articles/Simple_Example.html) on introducing recipes. We will also talk about the  [workflows](https://workflows.tidymodels.org/), no reading required.
+
+## Slides
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/09-week/index.html", ratio = "16:9")
+```
+
+[PDF download](static/slides/09-week/09-week.pdf)
