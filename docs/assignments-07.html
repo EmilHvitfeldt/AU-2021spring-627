@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Readings - week 9</title>
+  <title>Statistical Machine Learning: Placeholder</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Readings - week 9"/>
+  <meta property="og:title" content="Statistical Machine Learning: Placeholder"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Readings - week 9"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Placeholder"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 9"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle"]}},"value":[{"type":"character","attributes":{},"value":["Placeholder"]},{"type":"character","attributes":{},"value":["Placeholder"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2336,7 +2336,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.6.6/header-attrs.js"></script>
-  <script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2356,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 9","authors":[]}
+{"title":"Placeholder","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2442,7 +2441,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 9</h1>
+<h1>Placeholder</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2450,16 +2449,45 @@ Assignments
 
 
 <div class="d-article">
-<p>We will continue the topic of pre-processing from last week and see how it related to PCA (chapter 10 in “An Introduction to Statistical Learning”) and PCA regression (chapter 6.2).</p>
-<p><a href="https://recipes.tidymodels.org/">recipes</a> will be introduces as the R package we will use to perform pre-processing. Please read <a href="https://recipes.tidymodels.org/articles/Simple_Example.html">this vvignette</a> on introducing recipes. We will also talk about the <a href="https://workflows.tidymodels.org/">workflows</a>, no reading required.</p>
-<h2 id="slides">Slides</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="static/slides/09-week/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
-</div>
-</div>
-<p><a href="static/slides/09-week/09-week.pdf">PDF download</a></p>
+<h1 id="exercise-1-12-points">Exercise 1 (12 points)</h1>
+<p>For part (a) through (c) indicate which of the statements are correct. Justify your answers.</p>
+<ol type="a">
+<li>The lasso, relative to least squares, is:
+<ul>
+<li>More flexible and hence will give improved prediction accuracy when its increase in bias is less than its decrease in variance.</li>
+<li>More flexible and hence will give improved prediction accuracy when its increase in variance is less than its decrease in bias.</li>
+<li>Less flexible and hence will give improved prediction accuracy when its increase in bias is less than its decrease in variance.</li>
+<li>Less flexible and hence will give improved prediction accuracy when its increase in variance is less than its decrease in bias.</li>
+</ul></li>
+<li>Repeat (a) for ridge regression relative to least squares.</li>
+<li>Repeat (a) for non-linear methods relative to least squares.</li>
+</ol>
+<h1 id="exercise-2-10-points">Exercise 2 (10 points)</h1>
+<p>Suppose we estimate the regression coefficients in a linear regression model by minimizing</p>
+<p><span class="math display">\[
+\sum_{i=1}^n \left( y_i - \beta_0 - \sum^p_{j=1}\beta_j x_{ij} \right)^2 + \lambda \sum_{j=1}^p \beta_j^2
+\]</span></p>
+<p>for a particular value of <span class="math inline">\(\lambda\)</span>. For part (a) through (c) indicate which of the statements are correct. Justify your answers.</p>
+<ol type="a">
+<li>As we increase <span class="math inline">\(\lambda\)</span> from 0, the training RSS will:
+<ul>
+<li>Increase initially, and then eventually start decreasing in an inverted U shape.</li>
+<li>Decrease initially, and then eventually start increasing in a U shape.</li>
+<li>Steadily increase.</li>
+<li>Steadily decrease.</li>
+<li>Remain constant.</li>
+</ul></li>
+<li>Repeat (a) for test RSS.</li>
+<li>Repeat (a) for variance.</li>
+<li>Repeat (a) for squared bias.</li>
+<li>Repeat (a) for the irreducible error.</li>
+</ol>
+<h1 id="exercise-3-13-points">Exercise 3 (13 points)</h1>
+<p>In this exercise, you are tasked to predict the weight of an animal in a zoo, based on which words are used to describe it. The <code>animals</code> data set can be downloaded <a href="data/animals.csv">here</a>.</p>
+<p>This data set contains 1001 variables. The first variable <code>weight</code> is the natural log of the mean weight of the animal. The remaining variables are named <code>tf_*</code> which shows how many times the word <code>*</code> appears in the description of the animal.</p>
+<p>Fit a lasso regression model to predict <code>weight</code> based on all the other variables.</p>
+<p>Use the <strong>tune</strong> package to perform hyperparameter tuning to select the best value of <span class="math inline">\(\lambda\)</span>. Use 10 bootstraps as the <code>resamples</code> data set.</p>
+<p>How well does this model perform on the testing data set?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2468,6 +2496,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

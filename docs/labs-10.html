@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Readings - week 9</title>
+  <title>Statistical Machine Learning: Lab week 10</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Readings - week 9"/>
+  <meta property="og:title" content="Statistical Machine Learning: Lab week 10"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Readings - week 9"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Lab week 10"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 9"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab week 10"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2336,7 +2336,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.6.6/header-attrs.js"></script>
-  <script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2356,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 9","authors":[]}
+{"title":"Lab week 10","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2442,7 +2441,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 9</h1>
+<h1>Lab week 10</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2450,16 +2449,23 @@ Assignments
 
 
 <div class="d-article">
-<p>We will continue the topic of pre-processing from last week and see how it related to PCA (chapter 10 in “An Introduction to Statistical Learning”) and PCA regression (chapter 6.2).</p>
-<p><a href="https://recipes.tidymodels.org/">recipes</a> will be introduces as the R package we will use to perform pre-processing. Please read <a href="https://recipes.tidymodels.org/articles/Simple_Example.html">this vvignette</a> on introducing recipes. We will also talk about the <a href="https://workflows.tidymodels.org/">workflows</a>, no reading required.</p>
-<h2 id="slides">Slides</h2>
+<p>This week we will talk about shrinkage and hyperparameter tuning.</p>
+<p>We will use the <code>Hitters</code> data set from the <code>ISLR</code> library. It can be loaded using the following code</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="static/slides/09-week/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://www.StatLearning.com'>ISLR</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"Hitters"</span><span class='op'>)</span>
+</code></pre>
 </div>
 </div>
-<p><a href="static/slides/09-week/09-week.pdf">PDF download</a></p>
+<p>Remove all rows where the salary is <code>NA</code> and split the data into testing and training data sets.</p>
+<ol type="a">
+<li>Use <code>linear_reg()</code> with <code>mixture = 0</code> to specify a ridge regression model.</li>
+<li>Fit the model on the data and inspect the model. What do you see?</li>
+<li>Try to predict using this model. What are your output?</li>
+<li>Use {tune} to setup hyperparameter tuning to determine the right amount of regularization.</li>
+<li>Fit the best model. How does your parameter estimates look like?</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

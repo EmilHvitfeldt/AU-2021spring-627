@@ -1,0 +1,25 @@
+---
+title: "Lab week 10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This week we will talk about shrinkage and hyperparameter tuning.
+
+We will use the `Hitters` data set from the `ISLR` library. It can be loaded using the following code
+
+```{r, eval=FALSE}
+library(ISLR)
+data("Hitters")
+```
+
+Remove all rows where the salary is `NA` and split the data into testing and training data sets.
+
+
+a. Use `linear_reg()` with  `mixture = 0` to specify a ridge regression model.
+b. Fit the model on the data and inspect the model. What do you see?
+c. Try to predict using this model. What are your output?
+d. Use {tune} to setup hyperparameter tuning to determine the right amount of regularization.
+e. Fit the best model. How does your parameter estimates look like?
