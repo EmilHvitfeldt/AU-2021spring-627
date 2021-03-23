@@ -9,3 +9,10 @@ knitr::opts_chunk$set(echo = TRUE)
 Please finish reading chapter 6 of "An Introduction to Statistical Learning". The chapter covers Shrinkage methods including ridge and lasso regression.
 
 This will be a good time to finally talk about hyper parameter tuning. We will use the [tune](https://tune.tidymodels.org/) package and [dials](https://dials/tidymodels.org/) package. A great place to start learning about these packages is [this post](https://tune.tidymodels.org/articles/getting_started.html).
+
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/10-week/index.html", ratio = "16:9")
+```
+
+[PDF download](static/slides/10-week/10-week.pdf)
