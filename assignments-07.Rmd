@@ -1,6 +1,5 @@
 ---
-title: "Placeholder"
-subtitle: "Placeholder"
+title: "Assignment 7"
 ---
 
 ```{r setup, include=FALSE}

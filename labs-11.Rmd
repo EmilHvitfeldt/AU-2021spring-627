@@ -1,0 +1,16 @@
+---
+title: "Working with splines"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will use the `ames` data set from the `modeldata` library. It can be loaded using the following code
+
+```{r, eval=FALSE}
+library(tidymodels)
+data("ames")
+```
+
+We will try to predict the `Sale_Price` of a house by the `Longitude` of its location (this would not be the best idea alone, but serves as an example). Use `step_bs()` to fit a spline onto `Longitude` use cross-validation to find the value of `degree` where the model performs best.
