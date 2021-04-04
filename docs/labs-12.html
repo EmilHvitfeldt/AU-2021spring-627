@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Labs - Week 4</title>
+  <title>Statistical Machine Learning: Lab 12</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Labs - Week 4"/>
+  <meta property="og:title" content="Statistical Machine Learning: Lab 12"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Labs - Week 4"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Lab 12"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","params"]}},"value":[{"type":"character","attributes":{},"value":["Labs - Week 4"]},{"type":"character","attributes":{},"value":["LDA, QDA and KNNs"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["solutions"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab 12"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Labs - Week 4","authors":[]}
+{"title":"Lab 12","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2445,7 +2445,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Labs - Week 4</h1>
+<h1>Lab 12</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2453,20 +2453,13 @@ Assignments
 
 
 <div class="d-article">
-<p>We will be using the add-on package <a href="https://discrim.tidymodels.org/">discrim</a> to access functions to perform discriminant analysis models with parsnip and the <code>klaR</code> package to perform the QDA calculations. if you haven’t already got it installed run</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"discrim"</span>, <span class='st'>"klaR"</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>Create a test-train <code>rsplit</code> object of <code>mlc_churn</code> using <code>initial_split()</code>. Use the arguments to set the proportions of the training data to be 80%. Stratify the sampling according to the <code>churn</code> variable.</p>
-<p>Do the following tasks for LDA, QDA and KNN model.</p>
+<p>We will be using this lab to explore decision trees and random forests using the <code>palmerpenguins</code> package. We will also use a couple of other packages such as <code>rpart.plot</code>, <code>rpart</code>, <code>ranger</code>, and <code>vip</code>.</p>
 <ol type="a">
-<li>Fit a classification model. Use <code>number_vmail_messages</code>, <code>total_intl_minutes</code>, <code>total_intl_calls</code>, <code>total_intl_charge</code>, <code>number_customer_service_calls</code> as predictors. Remember to fit the model only using the training data set.</li>
-<li>Inspect the model with <code>summary()</code> and <code>tidy()</code>. How good are the variables we have chosen?</li>
-<li>Predict values for the testing data set.</li>
-<li>Use <code>conf_mat()</code> to construct a confusion matrix. Does the confusion matrix look good?</li>
+<li><p>Fit a decision tree using <code>decision_tree()</code>, and visualize the structure of the tree.</p></li>
+<li><p>Try different values of the hyperparameters for the tree and see how the shape of the tree changes.</p></li>
+<li><p>Use the <code>vip</code> package to showcase the variable importance.</p></li>
+<li><p>Fit a random forest model using <code>rand_forest()</code>. What Do you see in the output?</p></li>
+<li><p>Use the <code>vip</code> package to showcase the variable importance for the random forest.</p></li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

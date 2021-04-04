@@ -1,0 +1,19 @@
+---
+title: "Lab 12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will be using this lab to explore decision trees and random forests using the `palmerpenguins` package. We will also use a couple of other packages such as `rpart.plot`, `rpart`, `ranger`, and `vip`.
+
+a. Fit a decision tree using `decision_tree()`, and visualize the structure of the tree.
+
+b. Try different values of the hyperparameters for the tree and see how the shape of the tree changes.
+
+c. Use the `vip` package to showcase the variable importance.
+
+d. Fit a random forest model using `rand_forest()`. What Do you see in the output?
+
+e. Use the `vip` package to showcase the variable importance for the random forest.
