@@ -7,3 +7,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 We will be talking about Decision trees, bagging, boosting and random forests . Please read chapter 8 in "An Introduction to Statistical Learning".
+
+## Slides
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/12-week/index.html", ratio = "16:9")
+```
+
+[PDF download](static/slides/12-week/12-week.pdf)
