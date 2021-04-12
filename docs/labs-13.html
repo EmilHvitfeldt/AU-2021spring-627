@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Labs - Week 3</title>
+  <title>Statistical Machine Learning: Lab week 13</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Labs - Week 3"/>
+  <meta property="og:title" content="Statistical Machine Learning: Lab week 13"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Labs - Week 3"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Lab week 13"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","params"]}},"value":[{"type":"character","attributes":{},"value":["Labs - Week 3"]},{"type":"character","attributes":{},"value":["Logistic Regression and Data Splitting"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["solutions"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab week 13"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Labs - Week 3","authors":[]}
+{"title":"Lab week 13","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2447,7 +2447,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Labs - Week 3</h1>
+<h1>Lab week 13</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2455,33 +2455,19 @@ Assignments
 
 
 <div class="d-article">
-<p>These sets of labs will introduce you to logistic regression. This will also be your first introduction to the <a href="https://rsample.tidymodels.org/">rsample</a> package which we will use to perform train-test split.</p>
-<h1 id="exercise-1">Exercise 1</h1>
-<p>In this exercise we will explore the <code>mlc_churn</code> data set included in tidymodels.</p>
+<p>In this lab, we will explore how to use SVM models. We will start by using the <code>Khan</code> data set from the <strong>ISLR</strong> package.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidymodels.tidymodels.org'>tidymodels</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"mlc_churn"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://www.StatLearning.com'>ISLR</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidymodels.tidymodels.org'>tidymodels</a></span><span class='op'>)</span>
+
+<span class='va'>Khan_train</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Khan</span><span class='op'>$</span><span class='va'>xtrain</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>Khan</span><span class='op'>$</span><span class='va'>ytrain</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>Khan_test</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Khan</span><span class='op'>$</span><span class='va'>xtest</span>, y <span class='op'>=</span> <span class='va'>Khan</span><span class='op'>$</span><span class='va'>ytest</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<p>The data set contains a variable called <code>churn</code></p>
-<ol type="a">
-<li><p>Create a test-train <code>rsplit</code> object of <code>mlc_churn</code> using <code>initial_split()</code>. Use the arguments to set the proportions of the training data to be 80%. Stratify the sampling according to the <code>churn</code> variable. How many observations are in the testing and training sets?</p></li>
-<li><p>Create the training and testing data set with <code>training()</code> and <code>testing()</code> respectively. Does the observation counts match what you found in the last question?</p></li>
-<li><p>Fit a logistic regression model using <code>logistic_reg()</code>. Use <code>number_vmail_messages</code>, <code>total_intl_minutes</code>, <code>total_intl_calls</code>, <code>total_intl_charge</code>, <code>number_customer_service_calls</code> as predictors. Remember to fit the model only using the training data set.</p></li>
-<li><p>Inspect the model with <code>summary()</code> and <code>tidy()</code>. How good are the variables we have chosen?</p></li>
-<li><p>Predict values for the testing data set. Use the <code>type</code> argument to also get probability predictions.</p></li>
-<li><p>Use <code>conf_mat()</code> to construct a confusion matrix. Does the confusion matrix look good?</p></li>
-</ol>
-<p><code>conf_mat()</code> is used as follows, where <code>truth</code> is the name of the true response variable and <code>estimate</code> is the name of the predicted response.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>conf_mat</span><span class='op'>(</span><span class='va'>truth</span>, <span class='va'>estimate</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
+<p>We will fit a linear SVM on the training data set and predict the test data set. What do we expect the performance to be on the training and testing data set?</p>
+<p>Next, we will switch to the <code>Carseats</code> and try to predict whether a store is located in the US or not. We will tune some of the arguments to get a good fit.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

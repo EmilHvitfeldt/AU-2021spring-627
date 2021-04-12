@@ -70,6 +70,8 @@ navbar:
           href: labs-11.html
         - text: "Week 12"
           href: labs-12.html
+        - text: "Week 13"
+          href: labs-13.html
     - text: "Assignments"
       menu:
         - text: "Information"

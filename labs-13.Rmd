@@ -1,0 +1,21 @@
+---
+title: "Lab week 13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this lab, we will explore how to use SVM models. We will start by using the `Khan` data set from the **ISLR** package. 
+
+```{r, eval=FALSE}
+library(ISLR)
+library(tidymodels)
+
+Khan_train <- data.frame(x = Khan$xtrain, y = as.factor(Khan$ytrain))
+Khan_test <- data.frame(x = Khan$xtest, y = Khan$ytest)
+```
+
+We will fit a linear SVM on the training data set and predict the test data set. What do we expect the performance to be on the training and testing data set?
+
+Next, we will switch to the `Carseats` and try to predict whether a store is located in the US or not. We will tune some of the arguments to get a good fit.
