@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Machine Learning: Readings - week 3</title>
+  <title>Statistical Machine Learning: Assignment 10</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Machine Learning: Readings - week 3"/>
+  <meta property="og:title" content="Statistical Machine Learning: Assignment 10"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Machine Learning"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Machine Learning: Readings - week 3"/>
+  <meta property="twitter:title" content="Statistical Machine Learning: Assignment 10"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 3"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignment 10"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2336,7 +2336,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.6.6/header-attrs.js"></script>
-  <script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2356,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 3","authors":[]}
+{"title":"Assignment 10","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2447,7 +2446,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 3</h1>
+<h1>Assignment 10</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2455,16 +2454,47 @@ Assignments
 
 
 <div class="d-article">
-<p>Start read chapter 4 of “An Introduction to Statistical Learning”, we will color 4.1, 4.2 and 4.3. This chapter covers logistic regression, linear discriminant analysis, and quadratic discriminant analysis. We will start by talking about logistic regression this week and talk about linear discriminant analysis and quadratic discriminant analysis next week. Furthermore this is the first we will be talking about classification methods, take note of the differences between this and regression.</p>
-<p>We will also talk about the notion of data splitting or “train-test splitting”. Please read the 5th chapter of “Tidy Modeling with R” which can be found <a href="https://www.tmwr.org/splitting.html">here</a>.</p>
-<h2 id="slides">Slides</h2>
+<h1 id="exercise-1">Exercise 1</h1>
+<p>This problem involves hyperplanes in two dimensions.</p>
+<ol type="a">
+<li>Sketch the hyperplane <span class="math inline">\(1 + 3X_1 - X_2 = 0\)</span>. Indicate the set of points for which <span class="math inline">\(1 + 3X_1 - X_2 &gt; 0\)</span>, as well as the sett of points for which <span class="math inline">\(1 + 3X_1 - X_2 &lt; 0\)</span>.</li>
+<li>On the same plot, sketch the hyperplane <span class="math inline">\(-2 + X_1 + 2 X_2 = 0\)</span>. Indicate the set of points for which <span class="math inline">\(-2 + X_1 + 2 X_2 &gt; 0\)</span>, as well as the sett of points for which <span class="math inline">\(-2 + X_1 + 2 X_2 &lt; 0\)</span>.</li>
+</ol>
+<h1 id="exercise-2">Exercise 2</h1>
+<p>We have seen that in <span class="math inline">\(p = 2\)</span> dimensions, a linear decision boundary takes the form <span class="math inline">\(\beta_0 + \beta_1 X_1 + \beta_2 X_2 = 0\)</span>. We now investigate a non-linear decision boundary.</p>
+<ol type="a">
+<li>Sketch the curve</li>
+</ol>
+<p><span class="math display">\[(1 + X_1)^2 + (2 - X_2)^2 = 4\]</span></p>
+<ol start="2" type="a">
+<li>On your sketch, indicate the set of points for which</li>
+</ol>
+<p><span class="math display">\[(1 + X_1)^2 + (2 - X_2)^2 &gt; 4\]</span></p>
+<p>as well as the set of points for which</p>
+<p><span class="math display">\[(1 + X_1)^2 + (2 - X_2)^2 \leq 4\]</span></p>
+<ol start="3" type="a">
+<li>Suppose that a classifier assigns an observation to the blue class if</li>
+</ol>
+<p><span class="math display">\[(1 + X_1)^2 + (2 - X_2)^2 &gt; 4\]</span></p>
+<p>and to the red class otherwise. To what class is the observation <span class="math inline">\((0, 0)\)</span> classified? <span class="math inline">\((-1, 1)\)</span>?, <span class="math inline">\((2, 2)\)</span>?, <span class="math inline">\((3, 8)\)</span>?</p>
+<h1 id="exercise-3">Exercise 3</h1>
+<p>In this problem, you will use support vector approaches to predict whether a given car gets high or low gas mileage based on the <code>Auto</code> data set from the <strong>ISLR</strong> package. To the following code to turn the <code>mpg</code> variable to a binary factor that is split by the median value of <code>mpg</code>.</p>
+<p>You will need to use the</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="static/slides/03-week/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidymodels.tidymodels.org'>tidymodels</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://www.StatLearning.com'>ISLR</a></span><span class='op'>)</span>
+
+<span class='va'>Auto</span> <span class='op'>&lt;-</span> <span class='va'>Auto</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>mpg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>mpg</span> <span class='op'>&gt;</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>mpg</span><span class='op'>)</span>, 
+                      levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
+                      labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"High"</span>, <span class='st'>"Low"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>origin</span>, <span class='op'>-</span><span class='va'>name</span><span class='op'>)</span>
+</code></pre>
 </div>
 </div>
-<p><a href="static/slides/03-week/03-week.pdf">PDF download</a></p>
+<p>Use k-fold cross-validation to fit an SVM with a polynomial radial basis kernel (<code>svm_poly()</code>) to select a good value of <code>cost</code> and <code>degree</code>. Report the different errors associated with different values of this parameter. Comment on your results.</p>
+<p>Repeat with an SVM with a radial basis kernel (<code>svm_rbf()</code>). This model can be tuned over <code>cost</code> and <code>rbf_sigma</code> which is The cost of predicting a sample within or on the wrong side of the margin and The precision parameter for the radial basis function, respectively. Comment on your results.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2473,6 +2503,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

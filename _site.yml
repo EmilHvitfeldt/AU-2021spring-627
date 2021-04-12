@@ -95,6 +95,8 @@ navbar:
           href: assignments-08.html
         - text: "Assignment 9"
           href: assignments-09.html
+        - text: "Assignment 10"
+          href: assignments-10.html
     - text: "Reference"
       href: reference.html
 output: distill::distill_article
