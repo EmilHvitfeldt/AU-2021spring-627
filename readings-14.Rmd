@@ -1,0 +1,15 @@
+---
+title: "Readings - week 14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Slides
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/14-week/index.html", ratio = "16:9")
+```
+
+[PDF download](static/slides/14-week/14-week.pdf)

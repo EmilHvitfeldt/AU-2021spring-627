@@ -43,6 +43,8 @@ navbar:
           href: readings-12.html
         - text: "Week 13"
           href: readings-13.html
+        - text: "Week 14"
+          href: readings-14.html
     - text: "Labs"
       menu:
         - text: "Information"
